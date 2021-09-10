@@ -11,6 +11,12 @@
 
     <color name="colorRedBackground">#fffafa</color>
 
+    <color name="colorRedGradientLightLight">#fbd0d2</color>
+    <color name="colorRedGradientLight">#f6a2a4</color>
+    <color name="colorRedGradient">#f27377</color>
+    <color name="colorRedGradientDark">#ee444a</color>
+    <color name="colorRedGradientDarkDark">#eb2d33</color>
+
     <color name="colorRedAlternate">#cc0c20</color>
     <color name="colorRedLight">#dc141c</color>
     <color name="colorRed">#d4141c</color>

@@ -30,6 +30,7 @@
         tools:layout="@layout/fragment_logo">
         <action
             android:id="@+id/action_logo_fragment_to_nav_home"
+            app:enterAnim="@anim/enter_from_bottom"
             app:destination="@id/nav_home" />
     </fragment>
 

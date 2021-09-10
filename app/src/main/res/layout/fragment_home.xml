@@ -6,10 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
-    <ImageView
+    <Button
+        style="@style/ButtonPrimary"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/vv_no_background"/>
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:text="@string/add_wine" />
+
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
