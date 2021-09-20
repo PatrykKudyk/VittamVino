@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/groupTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:fontFamily="@font/lato_bold"
+        android:textColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Kategoria" />
+
+    <TextView
+        android:id="@+id/wineNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:fontFamily="@font/lato_regular"
+        android:textColor="@color/colorGreyDark"
+        app:layout_constraintTop_toBottomOf="@id/groupTextView"
+        tools:text="Nazwa wina" />
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/imageCardView"
+        android:layout_width="@dimen/image_size_large"
+        android:layout_height="@dimen/image_size_large"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/margin_normal"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wineNameTextView">
+
+        <ImageView
+            android:id="@+id/WineImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:src="@drawable/ic_wine" />
+    </androidx.cardview.widget.CardView>
+
+    <com.example.vittamvino.controls.RatingControlView
+        android:id="@+id/ratingView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        app:layout_constraintStart_toEndOf="@id/imageCardView"
+        app:layout_constraintTop_toTopOf="@id/imageCardView" />
+
+    <TextView
+        android:id="@+id/wineProducer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_small"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/wine_producer"
+        android:textColor="@color/colorGreyDark"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/imageCardView"
+        app:layout_constraintTop_toBottomOf="@id/ratingView" />
+
+
+    <TextView
+        android:id="@+id/wineProducerTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:fontFamily="@font/lato_bold"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/wineProducer"
+        app:layout_constraintTop_toTopOf="@id/wineProducer"
+        tools:text="Carlo Rossi" />
+
+
+    <TextView
+        android:id="@+id/wineType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/wine_type"
+        android:textColor="@color/colorGreyDark"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/imageCardView"
+        app:layout_constraintTop_toBottomOf="@id/wineProducer" />
+
+    <TextView
+        android:id="@+id/wineTypeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:fontFamily="@font/lato_bold"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/wineType"
+        app:layout_constraintTop_toTopOf="@id/wineType"
+        tools:text="Cabernet Savinion" />
+
+    <TextView
+        android:id="@+id/wineFlavour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_tiny"
+        android:fontFamily="@font/lato_regular"
+        android:text="@string/wine_flavour"
+        android:textColor="@color/colorGreyDark"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/imageCardView"
+        app:layout_constraintTop_toBottomOf="@id/wineTypeTextView" />
+
+    <TextView
+        android:id="@+id/wineFlavourTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_tiny"
+        android:fontFamily="@font/lato_bold"
+        android:maxLines="1"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toEndOf="@id/wineFlavour"
+        app:layout_constraintTop_toTopOf="@id/wineFlavour"
+        tools:text="Czerwone półsłodkie" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

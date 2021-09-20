@@ -8,6 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+    <color name="colorGreyLightLight">#a6a6a6</color>
+    <color name="colorGreyLight">#808080</color>
+    <color name="colorGrey">#666666</color>
+    <color name="colorGreyDark">#4d4d4d</color>
+    <color name="colorGreyDarkDark">#262626</color>
 
     <color name="colorRedBackground">#fffafa</color>
 
@@ -24,5 +29,11 @@
     <color name="colorRedMediumDark">#940404</color>
     <color name="colorRedDark">#640404</color>
     <color name="colorRedDarkDark">#5c0404</color>
+
+    <color name="colorYellowLightLight">#fee39a</color>
+    <color name="colorYellowLight">#fdcf4e</color>
+    <color name="colorYellow">#fcba03</color>
+    <color name="colorYellowDark">#ca9502</color>
+    <color name="colorYellowDarkDark">#976f02</color>
 
 </resources>

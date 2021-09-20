@@ -11,12 +11,12 @@
     <dimen name="image_size_small">16dp</dimen>
     <dimen name="image_size_tiny">8dp</dimen>
 
-    <dimen name="text_size_tiny">8dp</dimen>
-    <dimen name="text_size_small">11dp</dimen>
-    <dimen name="text_size_normal">14dp</dimen>
-    <dimen name="text_size_big">18dp</dimen>
-    <dimen name="text_size_large">24dp</dimen>
-    <dimen name="text_size_giant">30dp</dimen>
+    <dimen name="text_size_tiny">8sp</dimen>
+    <dimen name="text_size_small">11sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_big">18sp</dimen>
+    <dimen name="text_size_large">24sp</dimen>
+    <dimen name="text_size_giant">30sp</dimen>
 
     <dimen name="margin_tiny">2dp</dimen>
     <dimen name="margin_small">4dp</dimen>

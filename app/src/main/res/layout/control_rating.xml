@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/image_size_small"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/star1"
+            android:layout_width="@dimen/image_size_small"
+            android:layout_height="@dimen/image_size_small"
+            android:src="@drawable/ic_star_empty"/>
+
+        <ImageView
+            android:id="@+id/star2"
+            android:layout_width="@dimen/image_size_small"
+            android:layout_height="@dimen/image_size_small"
+            android:src="@drawable/ic_star_empty"/>
+
+        <ImageView
+            android:id="@+id/star3"
+            android:layout_width="@dimen/image_size_small"
+            android:layout_height="@dimen/image_size_small"
+            android:src="@drawable/ic_star_empty"/>
+
+        <ImageView
+            android:id="@+id/star4"
+            android:layout_width="@dimen/image_size_small"
+            android:layout_height="@dimen/image_size_small"
+            android:src="@drawable/ic_star_empty"/>
+
+        <ImageView
+            android:id="@+id/star5"
+            android:layout_width="@dimen/image_size_small"
+            android:layout_height="@dimen/image_size_small"
+            android:src="@drawable/ic_star_empty"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/ratingTextView"
+        android:layout_width="wrap_content"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_vertical"
+        android:textColor="@color/black"
+        android:text="4.5/5"
+        android:fontFamily="@font/lato_regular" />
+
+</merge>

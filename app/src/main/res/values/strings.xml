@@ -17,4 +17,7 @@
     <string name="category_producer">Producer</string>
     <string name="category_type">Type</string>
     <string name="category_flavour">Flavour</string>
+    <string name="wine_producer">Producer:\u0020</string>
+    <string name="wine_type">Type:\u0020</string>
+    <string name="wine_flavour">Flavour:\u0020</string>
 </resources>
