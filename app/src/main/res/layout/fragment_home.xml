@@ -4,20 +4,211 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorRedBackground"
     tools:context=".ui.home.HomeFragment">
 
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/searchCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="@color/colorRedDarkDark"
+        app:strokeWidth="1dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/searchEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_normal"
+            android:layout_marginTop="@dimen/margin_normal"
+            android:layout_marginEnd="@dimen/margin_normal"
+            android:layout_marginBottom="@dimen/margin_normal"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_search"
+            android:drawablePadding="@dimen/margin_small"
+            android:hint="@string/search_wine"
+            android:imeOptions="actionSearch"
+            android:maxLines="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/tabsConstraint"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"
+        app:layout_constraintTop_toBottomOf="@id/searchCardView">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline1_4e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2_4e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.50" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3_4e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryNameTV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRedBackground"
+            android:gravity="center"
+            android:text="@string/category_name"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/guideline1_4e"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryTypeTV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRedBackground"
+            android:gravity="center"
+            android:text="@string/category_type"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toStartOf="@id/guideline2_4e"
+            app:layout_constraintStart_toStartOf="@id/guideline1_4e" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryProducerTV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRedBackground"
+            android:gravity="center"
+            android:text="@string/category_producer"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/guideline3_4e"
+            app:layout_constraintStart_toStartOf="@id/guideline2_4e" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryFlavourTV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRedBackground"
+            android:gravity="center"
+            android:text="@string/category_flavour"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/guideline3_4e" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+    <!--                    android:layout_width="match_parent"-->
+    <!--                    android:layout_height="match_parent"-->
+    <!--                    android:id="@+id/tabLinesConstraint">-->
+
+    <!--                    <androidx.constraintlayout.widget.Guideline-->
+    <!--                        android:id="@+id/guideline1_3"-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:orientation="vertical"-->
+    <!--                        app:layout_constraintGuide_percent="0.33" />-->
+
+    <!--                    <androidx.constraintlayout.widget.Guideline-->
+    <!--                        android:id="@+id/guideline2_3"-->
+    <!--                        android:layout_width="wrap_content"-->
+    <!--                        android:layout_height="wrap_content"-->
+    <!--                        android:orientation="vertical"-->
+    <!--                        app:layout_constraintGuide_percent="0.67" />-->
+
+    <!--                    <View-->
+    <!--                        android:layout_width="match_parent"-->
+    <!--                        android:layout_height="1dp"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--                    <View-->
+    <!--                        android:layout_width="2dp"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!--                    <View-->
+    <!--                        android:layout_width="2dp"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintEnd_toEndOf="parent" />-->
+
+    <!--                    <View-->
+    <!--                        android:id="@+id/lineVertical1_3"-->
+    <!--                        android:layout_width="2dp"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintEnd_toEndOf="@id/guideline1_3"-->
+    <!--                        app:layout_constraintStart_toStartOf="@id/guideline1_3" />-->
+
+    <!--                    <View-->
+    <!--                        android:id="@+id/lineVertical2_3"-->
+    <!--                        android:layout_width="2dp"-->
+    <!--                        android:layout_height="match_parent"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintEnd_toEndOf="@id/guideline2_3"-->
+    <!--                        app:layout_constraintStart_toStartOf="@id/guideline2_3" />-->
+
+    <!--                    <View-->
+    <!--                        android:id="@+id/lineHorizontal1_3"-->
+    <!--                        android:layout_width="0dp"-->
+    <!--                        android:layout_height="2dp"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                        app:layout_constraintEnd_toEndOf="@id/guideline1_3"-->
+    <!--                        app:layout_constraintStart_toStartOf="parent" />-->
+
+    <!--                    <View-->
+    <!--                        android:id="@+id/lineHorizontal2_3"-->
+    <!--                        android:layout_width="0dp"-->
+    <!--                        android:layout_height="2dp"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                        app:layout_constraintStart_toStartOf="@id/guideline1_3"-->
+    <!--                        app:layout_constraintEnd_toEndOf="@id/guideline2_3"/>-->
+
+    <!--                    <View-->
+    <!--                        android:id="@+id/lineHorizontal3_3"-->
+    <!--                        android:layout_width="0dp"-->
+    <!--                        android:layout_height="2dp"-->
+    <!--                        android:background="@color/colorRedDarkDark"-->
+    <!--                        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--                        app:layout_constraintStart_toStartOf="@id/guideline2_3"-->
+    <!--                        app:layout_constraintEnd_toEndOf="parent"/>-->
+    <!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+    <!--                -->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_small"
+        app:layout_constraintBottom_toTopOf="@id/addWineButton"
+        app:layout_constraintTop_toBottomOf="@id/tabsConstraint" />
+
     <Button
+        android:id="@+id/addWineButton"
         style="@style/ButtonPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="@dimen/margin_normal"
-        android:layout_marginEnd="@dimen/margin_normal"
         android:layout_marginStart="@dimen/margin_normal"
-        android:text="@string/add_wine" />
-
-
-
+        android:layout_marginEnd="@dimen/margin_normal"
+        android:layout_marginBottom="@dimen/margin_normal"
+        android:text="@string/add_wine"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

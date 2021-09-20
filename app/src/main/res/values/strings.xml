@@ -12,4 +12,9 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="init_of_settings">Initializing settings</string>
     <string name="add_wine">Add wine</string>
+    <string name="search_wine">Search by wine name, type etc.</string>
+    <string name="category_name">Name</string>
+    <string name="category_producer">Producer</string>
+    <string name="category_type">Type</string>
+    <string name="category_flavour">Flavour</string>
 </resources>
