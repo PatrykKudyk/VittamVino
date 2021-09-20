@@ -41,6 +41,11 @@ class HomeViewModel : ViewModel() {
             chosenTab = 4
             handleTabs(binding, context)
         }
+
+        binding.categoryRatingTV.setOnClickListener {
+            chosenTab = 5
+            handleTabs(binding, context)
+        }
     }
 
     private fun handleTabs(binding: FragmentHomeBinding, context: Context) {
@@ -53,6 +58,7 @@ class HomeViewModel : ViewModel() {
         binding.categoryTypeTV.setBackgroundColor(context.getColor(R.color.colorRedGradientLight))
         binding.categoryProducerTV.setBackgroundColor(context.getColor(R.color.colorRedGradientLight))
         binding.categoryFlavourTV.setBackgroundColor(context.getColor(R.color.colorRedGradientLight))
+        binding.categoryRatingTV.setBackgroundColor(context.getColor(R.color.colorRedGradientLight))
 
     }
 
@@ -74,6 +80,11 @@ class HomeViewModel : ViewModel() {
 
             4 -> {
                 binding.categoryFlavourTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
+
+            }
+
+            5 -> {
+                binding.categoryRatingTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
 
             }
         }

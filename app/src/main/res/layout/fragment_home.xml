@@ -43,25 +43,32 @@
         app:layout_constraintTop_toBottomOf="@id/searchCardView">
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline1_4e"
+            android:id="@+id/guideline1_5e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.25" />
+            app:layout_constraintGuide_percent="0.2" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2_4e"
+            android:id="@+id/guideline2_5e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.50" />
+            app:layout_constraintGuide_percent="0.4" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3_4e"
+            android:id="@+id/guideline3_5e"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.75" />
+            app:layout_constraintGuide_percent="0.6" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4_5e"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/categoryNameTV"
@@ -71,7 +78,7 @@
             android:gravity="center"
             android:text="@string/category_name"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@id/guideline1_4e"
+            app:layout_constraintEnd_toStartOf="@id/guideline1_5e"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -82,8 +89,8 @@
             android:gravity="center"
             android:text="@string/category_type"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@id/guideline2_4e"
-            app:layout_constraintStart_toStartOf="@id/guideline1_4e" />
+            app:layout_constraintEnd_toStartOf="@id/guideline2_5e"
+            app:layout_constraintStart_toStartOf="@id/guideline1_5e" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/categoryProducerTV"
@@ -93,8 +100,8 @@
             android:gravity="center"
             android:text="@string/category_producer"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toEndOf="@id/guideline3_4e"
-            app:layout_constraintStart_toStartOf="@id/guideline2_4e" />
+            app:layout_constraintEnd_toEndOf="@id/guideline3_5e"
+            app:layout_constraintStart_toStartOf="@id/guideline2_5e" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/categoryFlavourTV"
@@ -104,8 +111,19 @@
             android:gravity="center"
             android:text="@string/category_flavour"
             android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="@id/guideline4_5e"
+            app:layout_constraintStart_toStartOf="@id/guideline3_5e" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/categoryRatingTV"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@color/colorRedBackground"
+            android:gravity="center"
+            android:text="@string/category_rating"
+            android:textColor="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@id/guideline3_4e" />
+            app:layout_constraintStart_toStartOf="@id/guideline4_5e" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -196,6 +214,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="@dimen/margin_small"
+        tools:listitem="@layout/listitem_wine"
         app:layout_constraintBottom_toTopOf="@id/addWineButton"
         app:layout_constraintTop_toBottomOf="@id/tabsConstraint" />
 
