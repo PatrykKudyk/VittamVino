@@ -44,7 +44,6 @@
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:textColor="@color/black"
-        android:text="4.5/5"
         android:fontFamily="@font/lato_regular" />
 
 </merge>

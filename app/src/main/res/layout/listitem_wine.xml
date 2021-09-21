@@ -13,6 +13,7 @@
         android:layout_marginTop="@dimen/margin_normal"
         android:fontFamily="@font/lato_bold"
         android:textColor="@color/black"
+        android:textSize="@dimen/text_size_large"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Kategoria" />
 
@@ -23,6 +24,7 @@
         android:layout_marginStart="@dimen/margin_normal"
         android:layout_marginTop="@dimen/margin_normal"
         android:fontFamily="@font/lato_regular"
+        android:textSize="@dimen/text_size_big"
         android:textColor="@color/colorGreyDark"
         app:layout_constraintTop_toBottomOf="@id/groupTextView"
         tools:text="Nazwa wina" />
@@ -41,7 +43,7 @@
         app:layout_constraintTop_toBottomOf="@id/wineNameTextView">
 
         <ImageView
-            android:id="@+id/WineImageView"
+            android:id="@+id/wineImageView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"

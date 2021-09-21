@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.vittamvino.R
 import com.example.vittamvino.controls.RatingControlView
+import com.example.vittamvino.enums.AdapterTypeEnum
+import com.example.vittamvino.helpers.WinesListSortHelper
 import com.example.vittamvino.models.WineRow
 
 class WinesRecyclerViewAdapter(val context: Context) :
@@ -23,9 +25,16 @@ class WinesRecyclerViewAdapter(val context: Context) :
 
     override fun onBindViewHolder(holder: WinesViewHolder, position: Int) {
         holder.initFields()
+        holder.setValues(wines[position])
     }
 
     override fun getItemCount(): Int = wines.size
+
+    fun setItems(items: ArrayList<WineRow>, adapterType: AdapterTypeEnum){
+        val sorted = WinesListSortHelper().sortList(items, adapterType)
+        wines = sorted
+        notifyDataSetChanged()
+    }
 
     inner class WinesViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
 
@@ -40,7 +49,7 @@ class WinesRecyclerViewAdapter(val context: Context) :
         fun initFields() {
             groupTextView = itemView.findViewById(R.id.groupTextView)
             wineNameTextView = itemView.findViewById(R.id.wineNameTextView)
-            imageView = itemView.findViewById(R.id.imageView)
+            imageView = itemView.findViewById(R.id.wineImageView)
             ratingView = itemView.findViewById(R.id.ratingView)
             producerTextView = itemView.findViewById(R.id.wineProducerTextView)
             typeTextView = itemView.findViewById(R.id.wineTypeTextView)
@@ -62,7 +71,7 @@ class WinesRecyclerViewAdapter(val context: Context) :
             }
 
             wineNameTextView.text = item.name
-//            ratingView.setRating(item.rating)
+            ratingView.setRating(item.rating)
             producerTextView.text = item.producer
             typeTextView.text = item.type
             flavourTextView.text = item.flavour.toString()

@@ -25,6 +25,7 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        viewModel.initializeRecyclerView(binding, requireContext())
         viewModel.initializeTabsWithListeners(binding, requireContext())
 
         return binding.root
