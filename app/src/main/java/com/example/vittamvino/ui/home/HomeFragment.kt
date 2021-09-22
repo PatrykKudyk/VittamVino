@@ -27,6 +27,7 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel.initializeRecyclerView(binding, requireContext())
         viewModel.initializeTabsWithListeners(binding, requireContext())
+        viewModel.initSearchAction(binding, requireActivity())
 
         return binding.root
     }
@@ -35,4 +36,6 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
 }

@@ -30,9 +30,8 @@ class WinesRecyclerViewAdapter(val context: Context) :
 
     override fun getItemCount(): Int = wines.size
 
-    fun setItems(items: ArrayList<WineRow>, adapterType: AdapterTypeEnum){
-        val sorted = WinesListSortHelper().sortList(items, adapterType)
-        wines = sorted
+    fun setItems(items: ArrayList<WineRow>){
+        wines = items
         notifyDataSetChanged()
     }
 

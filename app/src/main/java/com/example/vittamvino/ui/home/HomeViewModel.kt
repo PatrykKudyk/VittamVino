@@ -1,6 +1,13 @@
 package com.example.vittamvino.ui.home
 
+import android.app.Activity
 import android.content.Context
+import android.view.KeyEvent
+import android.view.View
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,19 +17,22 @@ import com.example.vittamvino.adapters.WinesRecyclerViewAdapter
 import com.example.vittamvino.databinding.FragmentHomeBinding
 import com.example.vittamvino.enums.AdapterTypeEnum
 import com.example.vittamvino.enums.WineFlavourEnum
+import com.example.vittamvino.helpers.WinesListSortHelper
 import com.example.vittamvino.models.WineRow
 
 class HomeViewModel : ViewModel() {
 
-    private var chosenTab = 1
     private lateinit var recyclerViewAdapter: WinesRecyclerViewAdapter
+    private var chosenTab = 1
+    private var adapterType = AdapterTypeEnum.Name
+    private var searchPhrase = ""
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"
     }
     val text: LiveData<String> = _text
 
-    fun initializeRecyclerView(binding: FragmentHomeBinding, context: Context){
+    fun initializeRecyclerView(binding: FragmentHomeBinding, context: Context) {
         recyclerViewAdapter = WinesRecyclerViewAdapter(context)
         binding.winesRecyclerView.layoutManager = LinearLayoutManager(context)
         binding.winesRecyclerView.adapter = recyclerViewAdapter
@@ -84,42 +94,77 @@ class HomeViewModel : ViewModel() {
             1 -> {
                 binding.categoryNameTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryNameTV.setTextColor(context.getColor(R.color.black))
-                recyclerViewAdapter.setItems(mockWines(context), AdapterTypeEnum.Name)
+                recyclerViewAdapter.setItems(
+                    WinesListSortHelper().filterAndSortList(
+                        mockWines(
+                            context
+                        ), AdapterTypeEnum.Name, searchPhrase
+                    )
+                )
+                adapterType = AdapterTypeEnum.Name
                 binding.winesRecyclerView.scrollToPosition(0)
             }
 
             2 -> {
                 binding.categoryTypeTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryTypeTV.setTextColor(context.getColor(R.color.black))
-                recyclerViewAdapter.setItems(mockWines(context), AdapterTypeEnum.Type)
+                recyclerViewAdapter.setItems(
+                    WinesListSortHelper().filterAndSortList(
+                        mockWines(
+                            context
+                        ), AdapterTypeEnum.Type, searchPhrase
+                    )
+                )
+                adapterType = AdapterTypeEnum.Type
                 binding.winesRecyclerView.scrollToPosition(0)
             }
 
             3 -> {
                 binding.categoryProducerTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryProducerTV.setTextColor(context.getColor(R.color.black))
-                recyclerViewAdapter.setItems(mockWines(context), AdapterTypeEnum.Producer)
+                recyclerViewAdapter.setItems(
+                    WinesListSortHelper().filterAndSortList(
+                        mockWines(
+                            context
+                        ), AdapterTypeEnum.Producer, searchPhrase
+                    )
+                )
+                adapterType = AdapterTypeEnum.Producer
                 binding.winesRecyclerView.scrollToPosition(0)
             }
 
             4 -> {
                 binding.categoryFlavourTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryFlavourTV.setTextColor(context.getColor(R.color.black))
-                recyclerViewAdapter.setItems(mockWines(context), AdapterTypeEnum.Flavour)
+                recyclerViewAdapter.setItems(
+                    WinesListSortHelper().filterAndSortList(
+                        mockWines(
+                            context
+                        ), AdapterTypeEnum.Flavour, searchPhrase
+                    )
+                )
+                adapterType = AdapterTypeEnum.Flavour
                 binding.winesRecyclerView.scrollToPosition(0)
             }
 
             5 -> {
                 binding.categoryRatingTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryRatingTV.setTextColor(context.getColor(R.color.black))
-                recyclerViewAdapter.setItems(mockWines(context), AdapterTypeEnum.Rating)
+                recyclerViewAdapter.setItems(
+                    WinesListSortHelper().filterAndSortList(
+                        mockWines(
+                            context
+                        ), AdapterTypeEnum.Rating, searchPhrase
+                    )
+                )
+                adapterType = AdapterTypeEnum.Rating
                 binding.winesRecyclerView.scrollToPosition(0)
             }
         }
     }
 
 
-    private fun mockWines(context: Context): ArrayList<WineRow>{
+    private fun mockWines(context: Context): ArrayList<WineRow> {
         return arrayListOf(
             WineRow(
                 null,
@@ -257,5 +302,41 @@ class HomeViewModel : ViewModel() {
                 WineFlavourEnum.WhiteSemiSweet
             )
         )
+    }
+
+    fun initSearchAction(binding: FragmentHomeBinding, activity: Activity) {
+        binding.searchEditText.setOnEditorActionListener(object : TextView.OnEditorActionListener {
+            override fun onEditorAction(p0: TextView?, p1: Int, p2: KeyEvent?): Boolean {
+                if (p1 == EditorInfo.IME_ACTION_SEARCH) {
+                    hideKeyboard(activity)
+                    performSearch(activity, p0?.text.toString())
+                    return true
+                }
+                return false
+            }
+
+        })
+    }
+
+    private fun performSearch(activity: Activity, phrase: String) {
+        searchPhrase = phrase
+        var wines = WinesListSortHelper().filterAndSortList(
+            mockWines(activity),
+            adapterType,
+            phrase.trim().lowercase()
+        )
+        recyclerViewAdapter.setItems(wines)
+    }
+
+
+    fun hideKeyboard(activity: Activity) {
+        val imm = activity.getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
+        var view: View? = activity.currentFocus
+
+        if (view == null) {
+            view = View(activity)
+        }
+
+        imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 }
