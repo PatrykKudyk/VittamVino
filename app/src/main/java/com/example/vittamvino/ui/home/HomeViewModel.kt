@@ -1,6 +1,7 @@
 package com.example.vittamvino.ui.home
 
 import android.app.Activity
+import android.app.Application
 import android.content.Context
 import android.view.KeyEvent
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,22 +17,33 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.vittamvino.R
 import com.example.vittamvino.adapters.WinesRecyclerViewAdapter
 import com.example.vittamvino.databinding.FragmentHomeBinding
+import com.example.vittamvino.db.MyDatabase
+import com.example.vittamvino.db.wine.Wine
+import com.example.vittamvino.db.wine.WineDao
 import com.example.vittamvino.enums.AdapterTypeEnum
 import com.example.vittamvino.enums.WineFlavourEnum
 import com.example.vittamvino.helpers.WinesListSortHelper
 import com.example.vittamvino.models.WineRow
 
-class HomeViewModel : ViewModel() {
+class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     private lateinit var recyclerViewAdapter: WinesRecyclerViewAdapter
     private var chosenTab = 1
     private var adapterType = AdapterTypeEnum.Name
     private var searchPhrase = ""
+    private val wineDao: WineDao
+    private val wines: LiveData<List<Wine?>>
 
-    private val _text = MutableLiveData<String>().apply {
-        value = "This is home Fragment"
+//    private val _text = MutableLiveData<String>().apply {
+//        value = "This is home Fragment"
+//    }
+//    val text: LiveData<String> = _text
+
+    init {
+        val db = MyDatabase.getDatabase(application)
+        wineDao = db!!.winesDao()
+        wines = wineDao.allWines
     }
-    val text: LiveData<String> = _text
 
     fun initializeRecyclerView(binding: FragmentHomeBinding, context: Context) {
         recyclerViewAdapter = WinesRecyclerViewAdapter(context)
@@ -164,145 +177,6 @@ class HomeViewModel : ViewModel() {
     }
 
 
-    private fun mockWines(context: Context): ArrayList<WineRow> {
-        return arrayListOf(
-            WineRow(
-                null,
-                "Wino1",
-                context.getDrawable(R.drawable.img),
-                3.5,
-                "Producent1",
-                "Typ1",
-                WineFlavourEnum.RedDry
-            ),
-            WineRow(
-                null,
-                "Wino2",
-                context.getDrawable(R.drawable.img),
-                3.8,
-                "Producent2",
-                "Typ1",
-                WineFlavourEnum.RedSemiSweet
-            ),
-            WineRow(
-                null,
-                "Wino3",
-                null,
-                1.2,
-                "Producent1",
-                "Typ2",
-                WineFlavourEnum.RedDry
-            ),
-            WineRow(
-                null,
-                "Wino4",
-                null,
-                4.2112,
-                "Producent3",
-                "Typ2",
-                WineFlavourEnum.WhiteDry
-            ),
-            WineRow(
-                null,
-                "Wino5",
-                context.getDrawable(R.drawable.img),
-                5.0,
-                "Producent3",
-                "Typ6",
-                WineFlavourEnum.RedDry
-            ),
-            WineRow(
-                null,
-                "Wino6",
-                context.getDrawable(R.drawable.img),
-                2.7,
-                "Producent7",
-                "Typ5",
-                WineFlavourEnum.RedDry
-            ),
-            WineRow(
-                null,
-                "Wino7",
-                null,
-                3.211,
-                "Producent21",
-                "Typ6",
-                WineFlavourEnum.RedSemiSweet
-            ),
-            WineRow(
-                null,
-                "Wino8",
-                null,
-                3.1,
-                "Producent21",
-                "Typ3",
-                WineFlavourEnum.RedSemiSweet
-            ),
-            WineRow(
-                null,
-                "Wino10",
-                context.getDrawable(R.drawable.img),
-                3.22,
-                "Producent12",
-                "Typ1",
-                WineFlavourEnum.RedSemiSweet
-            ),
-            WineRow(
-                null,
-                "Wino10",
-                null,
-                3.99,
-                "Producent13",
-                "Typ4",
-                WineFlavourEnum.WhiteSweet
-            ),
-            WineRow(
-                null,
-                "Wino11",
-                context.getDrawable(R.drawable.img),
-                3.0,
-                "Producent14",
-                "Typ3",
-                WineFlavourEnum.WhiteSweet
-            ),
-            WineRow(
-                null,
-                "Wino11",
-                null,
-                3.9,
-                "Producent16",
-                "Typ2",
-                WineFlavourEnum.WhiteSweet
-            ),
-            WineRow(
-                null,
-                "Wino13",
-                null,
-                3.1,
-                "Producent18",
-                "Typ1",
-                WineFlavourEnum.WhiteSemiSweet
-            ),
-            WineRow(
-                null,
-                "Wino14",
-                null,
-                3.8,
-                "Producent91",
-                "Typ2",
-                WineFlavourEnum.WhiteSemiSweet
-            ),
-            WineRow(
-                null,
-                "Wino14",
-                context.getDrawable(R.drawable.img),
-                3.2,
-                "Producent91",
-                "Typ1",
-                WineFlavourEnum.WhiteSemiSweet
-            )
-        )
-    }
 
     fun initSearchAction(binding: FragmentHomeBinding, activity: Activity) {
         binding.searchEditText.setOnEditorActionListener(object : TextView.OnEditorActionListener {
@@ -339,4 +213,147 @@ class HomeViewModel : ViewModel() {
 
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
+
+
+
+//    private fun mockWines(context: Context): ArrayList<WineRow> {
+//        return arrayListOf(
+//            WineRow(
+//                null,
+//                "Wino1",
+//                context.getDrawable(R.drawable.img),
+//                3.5,
+//                "Producent1",
+//                "Typ1",
+//                WineFlavourEnum.RedDry
+//            ),
+//            WineRow(
+//                null,
+//                "Wino2",
+//                context.getDrawable(R.drawable.img),
+//                3.8,
+//                "Producent2",
+//                "Typ1",
+//                WineFlavourEnum.RedSemiSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino3",
+//                null,
+//                1.2,
+//                "Producent1",
+//                "Typ2",
+//                WineFlavourEnum.RedDry
+//            ),
+//            WineRow(
+//                null,
+//                "Wino4",
+//                null,
+//                4.2112,
+//                "Producent3",
+//                "Typ2",
+//                WineFlavourEnum.WhiteDry
+//            ),
+//            WineRow(
+//                null,
+//                "Wino5",
+//                context.getDrawable(R.drawable.img),
+//                5.0,
+//                "Producent3",
+//                "Typ6",
+//                WineFlavourEnum.RedDry
+//            ),
+//            WineRow(
+//                null,
+//                "Wino6",
+//                context.getDrawable(R.drawable.img),
+//                2.7,
+//                "Producent7",
+//                "Typ5",
+//                WineFlavourEnum.RedDry
+//            ),
+//            WineRow(
+//                null,
+//                "Wino7",
+//                null,
+//                3.211,
+//                "Producent21",
+//                "Typ6",
+//                WineFlavourEnum.RedSemiSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino8",
+//                null,
+//                3.1,
+//                "Producent21",
+//                "Typ3",
+//                WineFlavourEnum.RedSemiSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino10",
+//                context.getDrawable(R.drawable.img),
+//                3.22,
+//                "Producent12",
+//                "Typ1",
+//                WineFlavourEnum.RedSemiSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino10",
+//                null,
+//                3.99,
+//                "Producent13",
+//                "Typ4",
+//                WineFlavourEnum.WhiteSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino11",
+//                context.getDrawable(R.drawable.img),
+//                3.0,
+//                "Producent14",
+//                "Typ3",
+//                WineFlavourEnum.WhiteSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino11",
+//                null,
+//                3.9,
+//                "Producent16",
+//                "Typ2",
+//                WineFlavourEnum.WhiteSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino13",
+//                null,
+//                3.1,
+//                "Producent18",
+//                "Typ1",
+//                WineFlavourEnum.WhiteSemiSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino14",
+//                null,
+//                3.8,
+//                "Producent91",
+//                "Typ2",
+//                WineFlavourEnum.WhiteSemiSweet
+//            ),
+//            WineRow(
+//                null,
+//                "Wino14",
+//                context.getDrawable(R.drawable.img),
+//                3.2,
+//                "Producent91",
+//                "Typ1",
+//                WineFlavourEnum.WhiteSemiSweet
+//            )
+//        )
+//    }
+
 }

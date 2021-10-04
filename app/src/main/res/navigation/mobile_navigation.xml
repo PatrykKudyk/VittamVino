@@ -32,7 +32,6 @@
             android:id="@+id/action_logo_fragment_to_nav_home"
             app:enterAnim="@anim/enter_from_bottom"
             app:launchSingleTop="true"
-            app:popUpTo="@+id/mobile_navigation"
             app:popUpToInclusive="true"
             app:destination="@id/nav_home" />
     </fragment>

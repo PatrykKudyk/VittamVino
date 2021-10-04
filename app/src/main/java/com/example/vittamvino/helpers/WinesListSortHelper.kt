@@ -10,9 +10,9 @@ class WinesListSortHelper {
         sortType: AdapterTypeEnum,
         phrase: String
     ): ArrayList<WineRow> {
-        if (phrase == ""){
-            return list
-        }
+//        if (phrase == ""){
+//            return list
+//        }
 
         var outputList = ArrayList<WineRow>()
         for (wine in list) {
@@ -31,7 +31,7 @@ class WinesListSortHelper {
         return outputList
     }
 
-    fun sortList(list: ArrayList<WineRow>, sortType: AdapterTypeEnum): ArrayList<WineRow> {
+    private fun sortList(list: ArrayList<WineRow>, sortType: AdapterTypeEnum): ArrayList<WineRow> {
         return when (sortType) {
             AdapterTypeEnum.Name -> sortByName(list)
             AdapterTypeEnum.Flavour -> sortByFlavour(list)
