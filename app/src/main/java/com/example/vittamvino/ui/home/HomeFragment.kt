@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.vittamvino.R
 import com.example.vittamvino.databinding.FragmentHomeBinding
 
@@ -29,12 +30,20 @@ class HomeFragment : Fragment() {
         viewModel.initializeTabsWithListeners(binding, requireContext())
         viewModel.initSearchAction(binding, requireActivity())
 
+        initFabListener()
+
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun initFabListener() {
+        binding.addWineButton.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_home_to_nav_add_wine)
+        }
     }
 
 

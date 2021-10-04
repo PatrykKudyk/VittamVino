@@ -8,8 +8,6 @@
     <string name="action_settings">Settings</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
     <string name="init_of_settings">Initializing settings</string>
     <string name="add_wine">Add wine</string>
     <string name="search_wine">Search by wine name, type etc.</string>
