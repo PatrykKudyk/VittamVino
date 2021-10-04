@@ -109,12 +109,18 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 binding.categoryNameTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryNameTV.setTextColor(context.getColor(R.color.black))
                 if (wines.value != null) {
+                    binding.winesRecyclerView.visibility = View.VISIBLE
+                    binding.noResultsConstraint.visibility = View.GONE
+
                     recyclerViewAdapter.setItems(
                         WinesListSortHelper().filterAndSortList(
                             WinesConverter().convertWinesToWineRows(wines.value!!),
                             AdapterTypeEnum.Name, searchPhrase
                         )
                     )
+                } else {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
                 }
                 adapterType = AdapterTypeEnum.Name
                 binding.winesRecyclerView.scrollToPosition(0)
@@ -124,13 +130,20 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 binding.categoryTypeTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryTypeTV.setTextColor(context.getColor(R.color.black))
                 if (wines.value != null) {
+                    binding.winesRecyclerView.visibility = View.VISIBLE
+                    binding.noResultsConstraint.visibility = View.GONE
+
                     recyclerViewAdapter.setItems(
                         WinesListSortHelper().filterAndSortList(
                             WinesConverter().convertWinesToWineRows(wines.value!!),
                             AdapterTypeEnum.Type, searchPhrase
                         )
                     )
+                } else {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
                 }
+
                 adapterType = AdapterTypeEnum.Type
                 binding.winesRecyclerView.scrollToPosition(0)
             }
@@ -139,13 +152,20 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 binding.categoryProducerTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryProducerTV.setTextColor(context.getColor(R.color.black))
                 if (wines.value != null) {
+                    binding.winesRecyclerView.visibility = View.VISIBLE
+                    binding.noResultsConstraint.visibility = View.GONE
+
                     recyclerViewAdapter.setItems(
                         WinesListSortHelper().filterAndSortList(
                             WinesConverter().convertWinesToWineRows(wines.value!!),
                             AdapterTypeEnum.Producer, searchPhrase
                         )
                     )
+                } else {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
                 }
+
                 adapterType = AdapterTypeEnum.Producer
                 binding.winesRecyclerView.scrollToPosition(0)
             }
@@ -154,13 +174,20 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 binding.categoryFlavourTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryFlavourTV.setTextColor(context.getColor(R.color.black))
                 if (wines.value != null) {
+                    binding.winesRecyclerView.visibility = View.VISIBLE
+                    binding.noResultsConstraint.visibility = View.GONE
+
                     recyclerViewAdapter.setItems(
                         WinesListSortHelper().filterAndSortList(
                             WinesConverter().convertWinesToWineRows(wines.value!!),
                             AdapterTypeEnum.Flavour, searchPhrase
                         )
                     )
+                } else {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
                 }
+
                 adapterType = AdapterTypeEnum.Flavour
                 binding.winesRecyclerView.scrollToPosition(0)
             }
@@ -169,13 +196,20 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                 binding.categoryRatingTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryRatingTV.setTextColor(context.getColor(R.color.black))
                 if (wines.value != null) {
+                    binding.winesRecyclerView.visibility = View.VISIBLE
+                    binding.noResultsConstraint.visibility = View.GONE
+
                     recyclerViewAdapter.setItems(
                         WinesListSortHelper().filterAndSortList(
                             WinesConverter().convertWinesToWineRows(wines.value!!),
                             AdapterTypeEnum.Rating, searchPhrase
                         )
                     )
+                } else {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
                 }
+
                 adapterType = AdapterTypeEnum.Rating
                 binding.winesRecyclerView.scrollToPosition(0)
             }
