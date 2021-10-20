@@ -14,9 +14,9 @@ class Wine(
     @ColumnInfo
     val rating: Double,
     @ColumnInfo
-    val producer: String,
+    val producerId: Int,
     @ColumnInfo
-    val type: String,
+    val typeId: Int,
     @ColumnInfo
-    val flavour: String
+    val flavourId: Int
 )

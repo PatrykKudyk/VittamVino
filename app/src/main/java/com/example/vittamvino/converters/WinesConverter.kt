@@ -8,19 +8,33 @@ class WinesConverter {
 
     fun convertWinesToWineRows(givenList: List<Wine?>): ArrayList<WineRow>{
         val outputList = ArrayList<WineRow>()
-        for (wine in givenList){
+//        for (wine in givenList){
+////            outputList.add(
+////                WineRow(
+////                    null,
+////                    wine!!.name,
+////                    null,
+////                    wine.rating,
+////                    wine.producer,
+////                    wine.type,
+////                    WineFlavourEnum.valueOf(wine.flavour)
+////                )
+////            )
+////        }
+          for (wine in givenList){
             outputList.add(
                 WineRow(
                     null,
                     wine!!.name,
                     null,
                     wine.rating,
-                    wine.producer,
-                    wine.type,
-                    WineFlavourEnum.valueOf(wine.flavour)
+                    "producent",
+                    "typ",
+                    WineFlavourEnum.WhiteSweet
                 )
             )
         }
+
         return outputList
     }
 }

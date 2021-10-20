@@ -33,7 +33,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private var adapterType = AdapterTypeEnum.Name
     private var searchPhrase = ""
     private val wineDao: WineDao
-    private val wines: LiveData<List<Wine?>>
+    val wines: LiveData<List<Wine?>>
 
 //    private val _text = MutableLiveData<String>().apply {
 //        value = "This is home Fragment"
@@ -42,7 +42,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
 
     init {
         val db = MyDatabase.getDatabase(application)
-        wineDao = db!!.winesDao()
+        wineDao = db!!.wineDao()
         wines = wineDao.allWines
     }
 
@@ -84,7 +84,7 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
         }
     }
 
-    private fun handleTabs(binding: FragmentHomeBinding, context: Context) {
+    fun handleTabs(binding: FragmentHomeBinding, context: Context) {
         turnOffAllTabs(binding, context)
         turnOnCorrectTab(binding, context)
     }

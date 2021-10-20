@@ -30,7 +30,9 @@ class HomeFragment : Fragment() {
         viewModel.initializeTabsWithListeners(binding, requireContext())
         viewModel.initSearchAction(binding, requireActivity())
 
+        bindWinesList()
         initFabListener()
+
 
         return binding.root
     }
@@ -44,6 +46,14 @@ class HomeFragment : Fragment() {
         binding.addWineButton.setOnClickListener {
             findNavController().navigate(R.id.action_nav_home_to_nav_add_wine)
         }
+    }
+
+    private fun bindWinesList() {
+        viewModel.wines.observe(requireActivity(), Observer { wine ->
+            wine?.let{
+                viewModel.handleTabs(binding, requireContext())
+            }
+        })
     }
 
 

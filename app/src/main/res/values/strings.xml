@@ -21,4 +21,8 @@
     <string name="wine_flavour">Flavour:\u0020</string>
 
     <string name="no_wines_found">No wines found</string>
+    <string name="add_wine_name">Name</string>
+    <string name="add_wine_producer">Producer</string>
+    <string name="add_wine_type">Type</string>
+    <string name="add_wine_flavour">Flavour</string>
 </resources>

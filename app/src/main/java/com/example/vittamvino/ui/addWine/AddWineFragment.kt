@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.example.vittamvino.databinding.FragmentAddWineBinding
 
 class AddWineFragment: Fragment() {
@@ -23,11 +24,20 @@ class AddWineFragment: Fragment() {
 
         _binding = FragmentAddWineBinding.inflate(inflater, container, false)
 
+        initListener()
+
         return binding.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun initListener() {
+        binding.addButton.setOnClickListener {
+            viewModel.addWine(binding)
+            findNavController().popBackStack()
+        }
     }
 }
