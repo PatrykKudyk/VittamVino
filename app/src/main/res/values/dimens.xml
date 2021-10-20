@@ -6,6 +6,7 @@
     <dimen name="nav_header_height">176dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
 
+    <dimen name="image_size_giant">152dp</dimen>
     <dimen name="image_size_large">64dp</dimen>
     <dimen name="image_size_big">48dp</dimen>
     <dimen name="image_size_normal">32dp</dimen>
@@ -28,5 +29,5 @@
     <dimen name="margin_64">64dp</dimen>
 
     <dimen name="tab_height">45dp</dimen>
-    <dimen name="add_wine_button_height">53dp</dimen>
+    <dimen name="add_wine_button_height">55dp</dimen>
 </resources>

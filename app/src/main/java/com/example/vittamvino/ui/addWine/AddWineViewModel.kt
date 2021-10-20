@@ -27,7 +27,7 @@ class AddWineViewModel(application: Application): AndroidViewModel(application) 
                 Wine(
                     Random.nextInt(),
                     binding.nameEditText.text.toString(),
-                    binding.ratingEditText.text.toString().toDouble(),
+                    binding.ratingControlView.rating.toDouble(),
                     1,
                     1,
                     1

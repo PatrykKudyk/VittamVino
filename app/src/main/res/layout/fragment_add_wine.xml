@@ -6,57 +6,180 @@
     android:layout_height="match_parent"
     tools:context=".ui.addWine.AddWineFragment">
 
-    <EditText
-        android:id="@+id/nameEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_big"
+    <ImageView
+        android:layout_width="@dimen/image_size_big"
+        android:layout_height="@dimen/image_size_big"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_normal"
+        android:src="@drawable/ic_add_circle"
+        app:layout_constraintStart_toStartOf="@id/addWineImage"
         app:layout_constraintTop_toTopOf="parent"
-        android:inputType="text"
-        android:hint="Nazwa"/>
+        app:tint="@color/colorRedDarkDark"/>
+
+    <ImageView
+        android:id="@+id/addWineImage"
+        android:layout_width="@dimen/image_size_giant"
+        android:layout_height="@dimen/image_size_giant"
+        android:layout_marginTop="@dimen/margin_big"
+        android:src="@drawable/ic_wine"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/nameCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_wine_button_height"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_normal"
+        app:layout_constraintTop_toBottomOf="@id/addWineImage"
+        app:strokeColor="@color/colorRed"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/image_size_normal"
+                android:layout_marginEnd="@dimen/image_size_normal"
+                android:background="@android:color/transparent"
+                android:gravity="center"
+                android:hint="@string/add_wine_name"
+                android:inputType="text"
+                android:textSize="@dimen/text_size_big"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/nameDeleteImage"
+                android:layout_width="@dimen/image_size_normal"
+                android:layout_height="@dimen/image_size_normal"
+                android:layout_marginEnd="@dimen/margin_small"
+                android:src="@drawable/ic_cancel"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/producerCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_wine_button_height"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_normal"
+        app:layout_constraintTop_toBottomOf="@id/nameCardView"
+        app:strokeColor="@color/colorRed"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/producerTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_big"
+                android:text="@string/add_wine_producer"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_big"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
 
-    <EditText
-        android:id="@+id/ratingEditText"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/typeCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_wine_button_height"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_normal"
+        app:layout_constraintTop_toBottomOf="@id/producerCardView"
+        app:strokeColor="@color/colorRed"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/typeTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_big"
+                android:text="@string/add_wine_type"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_big"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/flavourCardView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/add_wine_button_height"
+        android:layout_marginStart="@dimen/margin_normal"
+        android:layout_marginTop="@dimen/margin_big"
+        android:layout_marginEnd="@dimen/margin_normal"
+        app:layout_constraintTop_toBottomOf="@id/typeCardView"
+        app:strokeColor="@color/colorRed"
+        app:strokeWidth="2dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/flavourTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="@dimen/margin_big"
+                android:text="@string/add_wine_flavour"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_big"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.example.vittamvino.controls.ClickableRatingControlView
+        android:id="@+id/ratingControlView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/margin_big"
-        app:layout_constraintTop_toBottomOf="@id/nameEditText"
-        android:inputType="numberDecimal"
-        android:hint="Rating"/>
-
-
-    <EditText
-        android:id="@+id/producerEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_big"
-        app:layout_constraintTop_toBottomOf="@id/ratingEditText"
-        android:hint="Producent"/>
-
-
-    <EditText
-        android:id="@+id/typeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_big"
-        app:layout_constraintTop_toBottomOf="@id/producerEditText"
-        android:hint="Typ"/>
-
-    <EditText
-        android:id="@+id/flavourEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_big"
-        app:layout_constraintTop_toBottomOf="@id/typeEditText"
-        android:hint="Smak"/>
-
+        app:layout_constraintTop_toBottomOf="@id/flavourCardView" />
 
     <Button
         android:id="@+id/addButton"
+        style="@style/ButtonPrimary"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="Add"/>
+        android:layout_marginStart="@dimen/margin_small"
+        android:layout_marginEnd="@dimen/margin_small"
+        android:layout_marginBottom="@dimen/margin_small"
+        android:text="@string/add_wine"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
