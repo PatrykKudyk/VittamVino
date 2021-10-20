@@ -108,7 +108,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             1 -> {
                 binding.categoryNameTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryNameTV.setTextColor(context.getColor(R.color.black))
-                if (wines.value != null) {
+
+                if (wines.value?.size == 0) {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
+
+                } else if (wines.value != null) {
                     binding.winesRecyclerView.visibility = View.VISIBLE
                     binding.noResultsConstraint.visibility = View.GONE
 
@@ -118,10 +123,8 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             AdapterTypeEnum.Name, searchPhrase
                         )
                     )
-                } else {
-                    binding.noResultsConstraint.visibility = View.VISIBLE
-                    binding.winesRecyclerView.visibility = View.GONE
                 }
+
                 adapterType = AdapterTypeEnum.Name
                 binding.winesRecyclerView.scrollToPosition(0)
             }
@@ -129,7 +132,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             2 -> {
                 binding.categoryTypeTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryTypeTV.setTextColor(context.getColor(R.color.black))
-                if (wines.value != null) {
+
+                if (wines.value?.size == 0) {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
+
+                } else if (wines.value != null) {
                     binding.winesRecyclerView.visibility = View.VISIBLE
                     binding.noResultsConstraint.visibility = View.GONE
 
@@ -139,9 +147,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             AdapterTypeEnum.Type, searchPhrase
                         )
                     )
-                } else {
-                    binding.noResultsConstraint.visibility = View.VISIBLE
-                    binding.winesRecyclerView.visibility = View.GONE
                 }
 
                 adapterType = AdapterTypeEnum.Type
@@ -151,7 +156,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             3 -> {
                 binding.categoryProducerTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryProducerTV.setTextColor(context.getColor(R.color.black))
-                if (wines.value != null) {
+
+                if (wines.value?.size == 0) {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
+
+                } else if (wines.value != null) {
                     binding.winesRecyclerView.visibility = View.VISIBLE
                     binding.noResultsConstraint.visibility = View.GONE
 
@@ -161,9 +171,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             AdapterTypeEnum.Producer, searchPhrase
                         )
                     )
-                } else {
-                    binding.noResultsConstraint.visibility = View.VISIBLE
-                    binding.winesRecyclerView.visibility = View.GONE
                 }
 
                 adapterType = AdapterTypeEnum.Producer
@@ -173,7 +180,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             4 -> {
                 binding.categoryFlavourTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryFlavourTV.setTextColor(context.getColor(R.color.black))
-                if (wines.value != null) {
+
+                if (wines.value?.size == 0) {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
+
+                } else if (wines.value != null) {
                     binding.winesRecyclerView.visibility = View.VISIBLE
                     binding.noResultsConstraint.visibility = View.GONE
 
@@ -183,9 +195,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             AdapterTypeEnum.Flavour, searchPhrase
                         )
                     )
-                } else {
-                    binding.noResultsConstraint.visibility = View.VISIBLE
-                    binding.winesRecyclerView.visibility = View.GONE
                 }
 
                 adapterType = AdapterTypeEnum.Flavour
@@ -195,7 +204,12 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
             5 -> {
                 binding.categoryRatingTV.setBackgroundColor(context.getColor(R.color.colorRedBackground))
                 binding.categoryRatingTV.setTextColor(context.getColor(R.color.black))
-                if (wines.value != null) {
+
+                if (wines.value?.size == 0) {
+                    binding.noResultsConstraint.visibility = View.VISIBLE
+                    binding.winesRecyclerView.visibility = View.GONE
+
+                } else if (wines.value != null) {
                     binding.winesRecyclerView.visibility = View.VISIBLE
                     binding.noResultsConstraint.visibility = View.GONE
 
@@ -205,9 +219,6 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
                             AdapterTypeEnum.Rating, searchPhrase
                         )
                     )
-                } else {
-                    binding.noResultsConstraint.visibility = View.VISIBLE
-                    binding.winesRecyclerView.visibility = View.GONE
                 }
 
                 adapterType = AdapterTypeEnum.Rating
