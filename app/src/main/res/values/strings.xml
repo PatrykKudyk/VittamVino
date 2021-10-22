@@ -11,6 +11,7 @@
     <string name="init_of_settings">Initializing settings</string>
     <string name="add_wine">Add wine</string>
     <string name="search_wine">Search by wine name, type etc.</string>
+    <string name="search_producer">Search producer</string>
     <string name="category_name">Name</string>
     <string name="category_producer">Producer</string>
     <string name="category_type">Type</string>
@@ -25,4 +26,6 @@
     <string name="add_wine_producer">Producer</string>
     <string name="add_wine_type">Type</string>
     <string name="add_wine_flavour">Flavour</string>
+
+    <string name="choose_producer">Choose producer</string>
 </resources>

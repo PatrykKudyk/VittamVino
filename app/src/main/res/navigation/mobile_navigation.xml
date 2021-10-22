@@ -12,6 +12,8 @@
         tools:layout="@layout/fragment_home" >
         <action
             android:id="@+id/action_nav_home_to_nav_add_wine"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
             app:destination="@id/nav_add_wine" />
     </fragment>
 
@@ -37,6 +39,18 @@
         <action
             android:id="@+id/action_nav_add_wine_to_nav_home"
             app:destination="@id/nav_home" />
+        <action
+            android:id="@+id/action_nav_add_wine_to_nav_choose_producer"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:destination="@id/nav_choose_producer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_choose_producer"
+        android:name="com.example.vittamvino.ui.chooseProducer.ChooseProducerFragment"
+        android:label="@string/choose_producer"
+        tools:layout="@layout/fragment_choose_producer" >
     </fragment>
 
 

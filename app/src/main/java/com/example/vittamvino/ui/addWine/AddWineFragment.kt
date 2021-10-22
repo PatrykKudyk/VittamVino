@@ -7,9 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.example.vittamvino.R
 import com.example.vittamvino.databinding.FragmentAddWineBinding
 
-class AddWineFragment: Fragment() {
+class AddWineFragment : Fragment() {
 
     private lateinit var viewModel: AddWineViewModel
     private var _binding: FragmentAddWineBinding? = null
@@ -24,7 +25,7 @@ class AddWineFragment: Fragment() {
 
         _binding = FragmentAddWineBinding.inflate(inflater, container, false)
 
-        initListener()
+        initListeners()
 
         return binding.root
     }
@@ -34,10 +35,14 @@ class AddWineFragment: Fragment() {
         _binding = null
     }
 
-    private fun initListener() {
+    private fun initListeners() {
         binding.addButton.setOnClickListener {
             viewModel.addWine(binding)
             findNavController().popBackStack()
+        }
+
+        binding.producerCardView.setOnClickListener {
+            findNavController().navigate(R.id.action_nav_add_wine_to_nav_choose_producer)
         }
     }
 }
