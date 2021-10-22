@@ -28,4 +28,5 @@
     <string name="add_wine_flavour">Flavour</string>
 
     <string name="choose_producer">Choose producer</string>
+    <string name="add_producer">Add producer</string>
 </resources>

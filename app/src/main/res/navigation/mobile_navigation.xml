@@ -51,6 +51,20 @@
         android:name="com.example.vittamvino.ui.chooseProducer.ChooseProducerFragment"
         android:label="@string/choose_producer"
         tools:layout="@layout/fragment_choose_producer" >
+        <action
+            android:id="@+id/action_nav_choose_producer_to_nav_add_producer"
+            app:enterAnim="@anim/enter_from_right"
+            app:exitAnim="@anim/exit_to_left"
+            app:destination="@id/nav_add_producer" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_add_producer"
+        android:name="com.example.vittamvino.ui.addProducer.AddProducerFragment"
+        android:label="@string/add_producer"
+        tools:layout="@layout/fragment_add_producer"
+        >
+
     </fragment>
 
 
